@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import FilmeRepositorioInterface from "../../aplicacao/filme-repositorio-interface";
 require("dotenv").config();
-export class BancoMongoDB implements  FilmeRepositorioInterface {
+export default class BancoMongoDB implements  FilmeRepositorioInterface {
   public filmeModelo: any;
   constructor() {
     try{
@@ -19,22 +19,21 @@ export class BancoMongoDB implements  FilmeRepositorioInterface {
     )
   }
   async salvar(filme: Filme): Promise<Filme> {
-   const FilmeDTO = {
-    _id: filme.id,
-    titulo: filme.titulo,
-    descricao: filme.descricao,
-    imagem: filme.imagem
-   }
-   const filmeModelo = new this.filmeModelo(FilmeDTO)
-  const result = await filmeModelo.save()
-  const filmeSalvo ={
-    id: result._id,
-    titulo: result.titulo,
-    descricao: result.descricao,
-    imagem: result.imagem
-
-  }
-  return filmeSalvo
+    const filmeDTO = {
+      _id: filme.id,
+      titulo: filme.titulo,
+      descricao: filme.descricao,
+      imagem: filme.imagem
+    }
+    const filmeModelo = new this.filmeModelo(filmeDTO)
+    const result =  await filmeModelo.save()
+    const filmeSalvo = {
+      id: result._id,
+      titulo: result.titulo,
+      descricao: result.descricao,
+      imagem: result.imagem
+    }
+    return filmeSalvo
   }
   async listar(): Promise<Filme[]> {
     return new Promise((resolve, reject) => {
