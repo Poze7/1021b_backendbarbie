@@ -1,18 +1,9 @@
-import FilmeRepositorioInterface from "./filme-repositorio-interface";
-
+import FilmeRepositorioInterface from "./filme_repositorio_interface"
 export default class ListaFilme{
-      constructor
-      (readonly filmeRepositorio:FilmeRepositorioInterface){}
-
-
-      public async executar(){
-        return this.filmeRepositorio.listar(
-            
-        )
-
-      }
+    constructor(readonly filmeRepositorio:FilmeRepositorioInterface){}
+    public async executar(){
+        return this.filmeRepositorio.listar()
+    }
 }
-
-
 
 
