@@ -3,7 +3,7 @@ import BancoMongoDB from './banco-mongodb'
 
 describe('BancoMongoDB teste', () => {
     const bancoMongoDB = new BancoMongoDB()
-    beforeEach (async ()  =>{
+    beforeEach(async () => {
         await bancoMongoDB.filmeModelo.deleteMany({})
     })
     test('BancoMongoDB', () => {
