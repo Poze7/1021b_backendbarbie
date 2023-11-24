@@ -14,7 +14,7 @@ describe('BancoMongoDB teste', () => {
             id: 1,
             titulo: 'O Poderoso Chefão',
             descricao: 'Filme de máfia',
-            imagem: 'fotofilme.jpg'
+            imagem: 'https://www.seekpng.com/png/detail/11-114090_o-poderoso-chefinho-baby-boss-13-png-imagens.png'
         }
         const result = await bancoMongoDB.salvar(filme)
         expect(result).toEqual(filme)
